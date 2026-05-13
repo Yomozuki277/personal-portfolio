@@ -56,7 +56,50 @@
       mix-blend-mode: soft-light;
     }
 
+    .portfolio-decor {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .decor-asset {
+      position: absolute;
+      display: block;
+      opacity: 0.62;
+      filter: drop-shadow(0 22px 38px rgba(8,8,8,0.16));
+      mix-blend-mode: multiply;
+      transform-origin: center;
+    }
+
+    .decor-orbit {
+      top: -220px;
+      right: -170px;
+      width: min(58vw, 760px);
+      animation: decorDrift 22s ease-in-out infinite;
+    }
+
+    .decor-sigil {
+      left: max(-160px, -10vw);
+      top: 36vh;
+      width: min(34vw, 520px);
+      opacity: 0.46;
+      animation: sigilWake 18s ease-in-out infinite;
+    }
+
+    .decor-frame {
+      left: 50%;
+      bottom: -86px;
+      width: min(76vw, 900px);
+      opacity: 0.34;
+      transform: translateX(-50%);
+      mix-blend-mode: screen;
+    }
+
     .page {
+      position: relative;
+      z-index: 1;
       width: min(1280px, calc(100% - 48px));
       margin: 0 auto;
       padding: 34px 0 120px;
@@ -76,6 +119,20 @@
       position: relative;
       min-height: 820px;
       margin-top: 64px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      left: 42%;
+      top: 4px;
+      width: min(460px, 38vw);
+      aspect-ratio: 1;
+      background: url("assets/decor/cabinet-sigil.svg") center / contain no-repeat;
+      opacity: 0.28;
+      pointer-events: none;
+      transform: rotate(7deg);
+      mix-blend-mode: screen;
     }
 
     .light-figure {
@@ -187,6 +244,16 @@
       to { letter-spacing: 0.16em; opacity: 0.96; }
     }
 
+    @keyframes decorDrift {
+      0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+      50% { transform: translate3d(-18px, 18px, 0) rotate(4deg); }
+    }
+
+    @keyframes sigilWake {
+      0%, 100% { transform: translate3d(0, 0, 0) rotate(-2deg); }
+      50% { transform: translate3d(10px, -16px, 0) rotate(1deg); }
+    }
+
     .micro {
       position: absolute;
       left: 12%;
@@ -236,6 +303,23 @@
         repeating-linear-gradient(90deg, rgba(244,232,167,0.24) 0 1px, transparent 1px 18px),
         radial-gradient(circle at 40% 40%, rgba(8,8,8,0.18) 0 1px, transparent 1.7px) 0 0 / 9px 9px;
       mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
+    }
+
+    .atlas-chapter::after {
+      content: "";
+      position: absolute;
+      inset: auto 5% 18px auto;
+      z-index: -1;
+      width: min(520px, 56%);
+      aspect-ratio: 5 / 2;
+      background: url("assets/decor/specimen-frame.svg") center / contain no-repeat;
+      opacity: 0.32;
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
+    .atlas-chapter:nth-child(even)::after {
+      inset-inline: 5% auto;
     }
 
     .section-title {
@@ -533,8 +617,24 @@
 
     @media (max-width: 820px) {
       .page { width: min(100% - 28px, 720px); }
+      .decor-orbit { top: -130px; right: -240px; width: 620px; }
+      .decor-sigil { display: none; }
+      .decor-frame { width: 880px; }
       .hero { min-height: 650px; }
-      .vertical { writing-mode: horizontal-tb; top: auto; bottom: 80px; right: 20px; }
+      .hero::before { left: 24%; width: 420px; opacity: 0.2; }
+      .vertical {
+        writing-mode: horizontal-tb;
+        top: auto;
+        right: auto;
+        bottom: 132px;
+        left: 48px;
+        font-size: clamp(20px, 5vw, 28px);
+        letter-spacing: 0.16em;
+      }
+      .micro {
+        left: 48px;
+        bottom: 78px;
+      }
       .atlas { gap: 58px; }
       .atlas-chapter,
       .atlas-chapter:nth-child(even) {
@@ -596,6 +696,11 @@
       <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.2" xChannelSelector="R" yChannelSelector="G" />
     </filter>
   </svg>
+  <div class="portfolio-decor" aria-hidden="true">
+    <img class="decor-asset decor-orbit" src="assets/decor/orbit-arc.svg" alt="" />
+    <img class="decor-asset decor-sigil" src="assets/decor/cabinet-sigil.svg" alt="" />
+    <img class="decor-asset decor-frame" src="assets/decor/specimen-frame.svg" alt="" />
+  </div>
   <main class="page">
     <header class="topbar">
       <span>翁欣怡</span>

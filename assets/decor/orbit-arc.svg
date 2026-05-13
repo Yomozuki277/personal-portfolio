@@ -1,0 +1,14 @@
+<svg width="760" height="760" viewBox="0 0 760 760" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <g opacity=".72">
+    <path d="M636 380c0 141.385-114.615 256-256 256S124 521.385 124 380 238.615 124 380 124s256 114.615 256 256Z" stroke="#8A2F2A" stroke-width="1.4" stroke-dasharray="3 15"/>
+    <path d="M578 380c0 109.352-88.648 198-198 198S182 489.352 182 380s88.648-198 198-198 198 88.648 198 198Z" stroke="#B6A06C" stroke-width="1"/>
+    <path d="M492 207c53.299 32.717 86 90.76 86 173 0 109.352-88.648 198-198 198-62.338 0-117.956-28.818-154.231-73.862" stroke="#1D1B18" stroke-width="1" stroke-linecap="round" opacity=".38"/>
+    <path d="M380 70v78M380 612v78M70 380h78M612 380h78" stroke="#8A2F2A" stroke-width="1.2" stroke-linecap="round"/>
+    <circle cx="380" cy="124" r="5" fill="#8A2F2A"/>
+    <circle cx="636" cy="380" r="5" fill="#8A2F2A"/>
+    <circle cx="201" cy="560" r="4" fill="#B6A06C"/>
+    <circle cx="554" cy="206" r="4" fill="#B6A06C"/>
+    <path d="M380 335c24.853 0 45 20.147 45 45s-20.147 45-45 45-45-20.147-45-45 20.147-45 45-45Z" stroke="#8A2F2A" stroke-width="1.2"/>
+    <path d="M380 358l7 15 16 2-12 11 3 16-14-8-14 8 3-16-12-11 16-2 7-15Z" fill="#8A2F2A" opacity=".62"/>
+  </g>
+</svg>
