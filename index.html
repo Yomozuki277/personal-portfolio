@@ -535,6 +535,7 @@
 
     .node a,
     .sticker-media,
+    .mini-program-card,
     .proof {
       max-height: 0;
       margin-top: 0;
@@ -551,6 +552,9 @@
     .node:hover .sticker-media,
     .node:focus .sticker-media,
     .node:focus-within .sticker-media,
+    .node:hover .mini-program-card,
+    .node:focus .mini-program-card,
+    .node:focus-within .mini-program-card,
     .node:hover .proof,
     .node:focus .proof,
     .node:focus-within .proof {
@@ -574,6 +578,46 @@
 
     .node:not(:hover):not(:focus):not(:focus-within) a {
       margin-top: 0;
+    }
+
+    .mini-program-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 132px;
+      gap: 14px;
+      align-items: center;
+      margin-top: 16px;
+      padding: 12px;
+      border: 1px solid rgba(8,8,8,0.76);
+      background:
+        radial-gradient(circle at 18% 24%, rgba(228,87,31,0.12), transparent 28%),
+        linear-gradient(135deg, rgba(255,248,221,0.94), rgba(244,232,167,0.78));
+      box-shadow: 5px 5px 0 rgba(8,8,8,0.34);
+    }
+
+    .mini-program-card strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .mini-program-card span {
+      display: block;
+      color: rgba(8,8,8,0.66);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .mini-program-card img {
+      width: 132px;
+      aspect-ratio: 1;
+      object-fit: contain;
+      border: 1px solid rgba(8,8,8,0.7);
+      background: #fff;
+      padding: 6px;
     }
 
     .n3 { width: min(520px, 82%); }
@@ -661,11 +705,20 @@
       .node::after { display: none; }
       .node a,
       .sticker-media,
+      .mini-program-card,
       .proof {
         max-height: 520px;
         opacity: 1;
         visibility: visible;
         transform: none;
+      }
+      .mini-program-card {
+        grid-template-columns: 1fr;
+        max-width: 260px;
+      }
+      .mini-program-card img {
+        width: 100%;
+        max-width: 180px;
       }
       .node p::after { content: ""; }
       .node .meta::after {
@@ -762,6 +815,13 @@
             <div class="meta"><span>Web</span><span>AI Collab</span></div>
             <h3>footi</h3>
             <p>自制测试网站，实现微信交互与后台数据分析功能。已自行研发并推出小程序版本。</p>
+            <div class="mini-program-card">
+              <div>
+                <strong>WeChat Mini Program</strong>
+                <span>扫码进入 footi 小程序版本。</span>
+              </div>
+              <img src="assets/echo/footi-mini-program.png" alt="footi 微信小程序码" loading="lazy" />
+            </div>
             <a href="https://www.footi.bond/" target="_blank" rel="noreferrer">Enter</a>
           </article>
           <article class="node n10" tabindex="0">
