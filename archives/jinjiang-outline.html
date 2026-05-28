@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>晋江签约文大纲｜翁欣怡</title>
+  <style>
+    :root {
+      --ink: #080808;
+      --blue: #176f93;
+      --blue-deep: #0d5f84;
+      --paper: #f4e8a7;
+      --paper-soft: #fff8dd;
+      --orange: #e4571f;
+      --line: rgba(8, 8, 8, 0.18);
+      --serif: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
+      --sans: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+      --mono: "Courier New", ui-monospace, monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 50% 18%, rgba(244, 232, 167, 0.42), transparent 24%),
+        repeating-linear-gradient(90deg, rgba(244,232,167,0.12) 0 1px, transparent 1px 8px),
+        linear-gradient(180deg, #176f93 0%, #126887 46%, #0d5f84 100%);
+      font-family: var(--sans);
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 34px 0 90px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      color: var(--paper);
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+    }
+
+    .topbar a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+    }
+
+    .archive {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      min-height: 720px;
+      margin-top: 54px;
+      border: 2px solid var(--ink);
+      background: rgba(255, 248, 221, 0.92);
+      box-shadow: 18px 18px 0 rgba(8, 8, 8, 0.18);
+    }
+
+    .tabs {
+      display: grid;
+      align-content: start;
+      gap: 1px;
+      border-right: 2px solid var(--ink);
+      background: rgba(8, 8, 8, 0.18);
+    }
+
+    .tab {
+      min-height: 68px;
+      border: 0;
+      border-left: 4px solid transparent;
+      padding: 14px 16px;
+      background: rgba(255, 248, 221, 0.94);
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .tab span {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--orange);
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .tab strong {
+      display: block;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
+    .tab.is-active,
+    .tab:hover {
+      border-left-color: var(--orange);
+      background: var(--paper);
+    }
+
+    .panels {
+      max-height: 80vh;
+      overflow: auto;
+      padding: clamp(26px, 5vw, 58px);
+    }
+
+    h1 {
+      margin: 0 0 34px;
+      font-family: var(--serif);
+      font-size: clamp(38px, 7vw, 76px);
+      line-height: 1.1;
+    }
+
+    h2 {
+      margin: 0 0 20px;
+      font-family: var(--serif);
+      font-size: clamp(28px, 5vw, 54px);
+      line-height: 1.15;
+    }
+
+    h3 {
+      margin: 28px 0 10px;
+      font-family: var(--serif);
+      color: var(--blue-deep);
+      font-size: clamp(22px, 3vw, 34px);
+      line-height: 1.25;
+    }
+
+    p {
+      margin: 0 0 18px;
+      font-size: 17px;
+      line-height: 1.95;
+    }
+
+    .script-lines {
+      font-family: var(--serif);
+      line-height: 2.05;
+    }
+
+    .panel {
+      display: none;
+      animation: panelIn 220ms ease both;
+    }
+
+    .panel.is-active {
+      display: block;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin: 24px 0 30px;
+    }
+
+    .image-grid figure {
+      margin: 0;
+      border: 2px solid var(--ink);
+      background: rgba(255, 248, 221, 0.7);
+      box-shadow: 8px 8px 0 rgba(8, 8, 8, 0.16);
+      overflow: hidden;
+    }
+
+    .image-grid img {
+      display: block;
+      width: 100%;
+      height: 260px;
+      object-fit: contain;
+    }
+
+    @media (max-width: 820px) {
+      .archive {
+        grid-template-columns: 1fr;
+      }
+
+      .tabs {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        border-right: 0;
+        border-bottom: 2px solid var(--ink);
+      }
+
+      .panels {
+        max-height: none;
+      }
+
+      .image-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @keyframes panelIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <a href="../index.html">作品集</a>
+      <span>文字档案</span>
+    </header>
+    <section class="archive" data-archive>
+      <nav class="tabs" aria-label="目录">
+        <button class="tab is-active" type="button" data-panel="0"><span>01</span><strong>晋江申签四件套（四百字内概括人设、大纲、创新、看点）</strong></button>
+        <button class="tab" type="button" data-panel="1"><span>02</span><strong>世界观</strong></button>
+        <button class="tab" type="button" data-panel="2"><span>03</span><strong>主角人设</strong></button>
+        <button class="tab" type="button" data-panel="3"><span>04</span><strong>其他能力设定</strong></button>
+        <button class="tab" type="button" data-panel="4"><span>05</span><strong>副本大纲（第一个副本）</strong></button>
+      </nav>
+      <div class="panels">
+        <h1>晋江签约文大纲</h1>
+        <article class="panel is-active" data-panel-id="0">
+          
+          <p>1.人设<br>女主表面体弱摆烂吐槽役，实则扮猪吃老虎捡漏王；男主表面温柔得体，实则冷心冷情。<br>2.简纲<br>女主死亡会让原世界被系统污染为副本世界。系统派人刺杀，世界意识作弊让女主带记<br>忆重生。女主反杀后，系统让她以为自己是玩家，并给了金手指：掷骰判定某事成功与否，<br>排除其他因素五五开。<br>副本一女主意识到金手指失败率过高。遇到男主，互相觉得对方好骗。<br>副本二发现原住民会追杀任务者。女主利用失败判定，捡漏逃脱。<br>副本三回到原世界，遇到因女主而觉醒的朋友。女主察觉世界有独立意识，并非虚拟副<br>本。<br>副本四确认系统目的是污染所有世界意识，清理反抗者。金手指是系统的骗局。朋友因<br>不愿觉醒，成为开局刺杀女主的人。<br>女主利用金手指的失败判定对抗系统，和男主从互相伪装到并肩作战，最终主角团进入<br>新世界 HE。<br>3.创新点<br>金手指背刺玩家，剧情多反转；女主是概率的产物，金手指体现人物特征；探讨自由意<br>志和缸中之脑。<br>4.看点<br>升级流女强；女主反向利用金手指制裁系统；男女主从互相伪装到斗智斗勇的极限拉扯。</p>
+        </article>
+        <article class="panel" data-panel-id="1">
+          
+          <p>有两种类型的副本。<br>0 号副本，是一个独立的世界，无限流玩家就是原著居民，也是主线故事发生的世界，<br>被玩家认为是真正的世界。<br>二级副本，即任务世界。被无限流玩家当作是低于自身位面的世界，有自己的原著居民<br>和独立的设定。外来者和原著居民都需要遵守该世界的规则才能生存。玩家通常认为自己所<br>在的世界是主世界。<br>对原著居民而言，他们很了解所在世界的规则。靠近任务中心的原住民可以觉醒，觉醒<br>后的原住民认识到自己在任务世界，并对玩家其进行追杀。<br>系统（主神）会赐予每个玩家天赋，但每个天赋都存在 bug，经常失灵或者把事情弄糟，<br>暗示主世界也有规则存在，那么主世界并非全部的真实，或者说，其真实程度和其他任何世<br>界没有两样。<br>系统的目的就是通过投放玩家、植入规则来污染主世界的世界意识，让所有位面都变成<br>规则怪谈的发生地。<br>每个小世界都有自己的世界意识，它们的觉醒程度有区别，程度高的世界意识会自主反<br>抗系统的污染，比如女主的主世界。</p>
+        </article>
+        <article class="panel" data-panel-id="2">
+          
+          <p>（1）基本信息<br>1.年龄：20 岁<br>2.性格：吐槽役，行动力低下。<br>3.样貌：亚洲面孔，黑发黑瞳。脸色苍白，眼下常年挂着两只黑眼圈。长发，出门前会<br>随手束成起来，最后一圈只扎进去一半，发尾蓬乱地躺在脖子上。中性穿搭，夏季 T 恤短<br>裤拖鞋，冬季套黑色冲锋衣长筒靴。整体是病怏怏的气质。<br>4.职业：中文系大学生<br>5.故事功能：叙事主体，对故事发展有决定性作用。<br>6.优点：在一件事情中，能观察到周围人的性格、筹码并且预测到他们可能采取的行动。<br>7.缺点：体弱多病，身体协调能力低；固执。<br>（2）性格解析<br>1.告诉读者的初始设定：没什么真才实学的江湖骗子。<br>2.对自己的认知：自我认知从开始就是完整的，知道自己是什么人，自我认同度也很高，<br>是“石头一样的人物”。剧情发展会给女主添加新的行为动机，但不会改变她的性格。<br>3.对他人的期待：偶尔会做不费力的好人好事，希望大家认为自己是一个好人。<br>4.情感需求：①满足女主对人性的掌控欲。②渴望被了解而非被认同。女主的友情线和<br>爱情线均服务于这两个情感诉求。<br>5.人物动机：尽可能节能地存活下去。<br>（3）行为模式<br>1.基本行为逻辑：能外耗他人就不会内耗自己，较少进行反思性活动。<br>2.面对冲突：至少不会让对方认为自己在逃避冲突，尽管本质并非如此。例如，和他人<br>意见产生分歧，如果耽误了行动效率，会选择主动沟通，貌似真诚地说出对方想听的话，打<br>开对方的心结。多数人会认为女主和他们志同道合。<br>3.面对失败：不会掩盖缺陷，但思考方式是：①知道自己有问题，但问题不大。②都承<br>认自己的问题了，所以分析一定是客观的。<br>（4）人物弧光<br>1.进入无限流世界（主线故事开始）之前，普通的摆烂大学生。<br>2.主线刚开始：敌我能力悬殊，对存活的态度是消极的，仅凭基本求生本能行动。<br>3.获得能力后：开始享受胜利本身和过程，尤其是天上掉馅饼的方式取得胜利。当适应<br>这个环境时，理所当然地享受便利。<br>（5）能力介绍<br>1.名称：判定骰<br>2.功能：已知，我们在做一件事情的时候，它成功的概率受到各种因素的影响。判定骰<br>能够将所有因素排除在外，强行五五开。拥有者在做某件事情之前，可以使用判定骰，进行</p>
+<h3>成功与否的判断*只有成功和失败两个结果，并且概率均等*</h3>
+<p>3.介绍：你决定把命运交由概率定夺。<br>默念问题，抛出骰子，对一件事进行判定，抛开所有主客观因素，使其发生的可能性只<br>有 100%和 0%（必然发生和必然不发生）两种结果；结果出现的概率均为 50%；不可重复判<br>定同一件事；冷却时间 1 天。<br>4.相关剧情：<br>女主在拿到骰子之后，马上进行了第一个判定：脱离无限流世界。骰子没有给出回应。<br>她理所当然地认为自己的诉求超出了权限，没再理会。然而，开局掷出的第一颗骰子确定了<br>逃脱的结局，命运总会以自然而然的方式落在它该去的位置上。最后主神面对女主既定的成<br>功表示不屑：你之所以能赢过我，还是因为我赋予你的命运。女主笑了笑：但幸运女神在你<br>我之间唯一一次博弈中选择了我，这就足够了。<br>女主并不在意她是怎么样达成目的的，她理所应当地接受自由意志的缺席和被安排好的<br>成功。</p>
+        </article>
+        <article class="panel" data-panel-id="3">
+          
+          <p>（1）<br>1.名称：标签掠夺者<br>2.功能：<br>①标签查看：你有权随机查询玩家身上的 3 个标签，标签有概率包括天赋，但在伪装或<br>掠夺成功之前，你无法得知该标签是否属于天赋技能。<br>②标签伪装：你可以复制他人身上的标签贴到自己身上，同一人最多复制一个，身上最<br>多储存三个复制标签，且副本结束后自动清除。<br>复制得来的标签仅更改你在他人眼中的形象，不等于你获得了此项标签的属性。复制标<br>签的属性如果相互矛盾，则新复制的标签优先级更高。<br>③标签掠夺：当你对可查询标签的玩家造成致命伤害，你可以掠夺一个 ta 身上的标签。<br>之后你将拥有此项标签的属性，若与你原有属性冲突，则会覆盖原先的属性；相应的，对方<br>会失去该标签。<br>升级后，标签掠夺可以对原住民使用。<br>注意，掠夺是被动技能，无论如何只要满足条件就会发动能力；掠夺得到的标签不可挑<br>选；不会掠夺已有的标签；掠夺上限是两个，新的标签会自动覆盖旧的。<br>3.介绍：人当然可以被标签所区分。这个天赋几乎就是为你量身定做的！<br>4.拥有者：喜欢伪装成新人玩家，善于借刀杀人。<br>5.天赋使用剧情：<br>进入副本后，她按照以前的习惯先找到一条新人标签贴在自己身上，暂时保留其他空位。<br>而就在刚才，她觉醒了查看 npc 标签的能力。这也意味着，只要刷新出来的标签有关对方的<br>立场或阵营，她就可以把标签复制过来。和诡异狭路相逢时，同类身份大概率能帮助她躲避<br>一次追杀。<br>可她的标签迭代是根据复制时间来替换的。<br>也就是说，如果她逃脱后不想被玩家当成诡异追杀，就必须再复制三条标签。<br>这种情况下，新人标签也会消失——而且根据复制属性不重合的规则，或许她在复制完<br>“诡异”这个标签的那一刻，她的新手光环也将不复存在，而唯一的新人玩家已经被她杀死，<br>这个副本里没有第二个新人标签。即使她决定在接下来的任务时间内以诡异的身份躲藏，<br>“诡异”也只是一个伪装属性，她作为玩家一样要寻找副本的生路。<br>因此，她决定把复制诡异标签作为极端情况下保命的后手选择。<br>（2）<br>1.名称：血条可视化<br>2.功能：<br>①血条识别：识别周围所有对立阵营目标的血条。拥有者可以直观地通过有无血条来判<br>断队友，对立阵营的玩家头顶上会悬浮着一管拇指粗的红色血线——无法触碰，长短不一，<br>没有标明具体数值，会根据受伤的程度而缩短。此项能力无 cd 限制。<br>②伤害预知：如果拥有者决定对某个目标发起攻击，且这次攻击全程只由自己完成，那<br>么能够预见攻击成功后对方的血条，每天有三次预知机会。<br>3.介绍：副本对你来说只是另一种游戏。<br>4.拥有者：和平主义者，对 npc 和玩家都保有怜悯之心，非常信任无血条的队友。<br>5.天赋使用剧情：NPC 头上的血条给他带来了不小的精神污染。有时副本地点设置在车<br>站、广场或写字楼，都是人流密集处，密密麻麻的红线悬浮在众人头顶，像是漂浮着的云，<br>不知何时就会落下血雨。他总感觉，自己的精神仿佛也被这些血线扎入，头痛得像熬夜加宿<br>醉，他饱受折磨。<br>血条显示无法关闭，是玩家们趋之若鹜的无 cd 天赋。但在极少数的瞬间，他想要离开。</p>
+        </article>
+        <article class="panel" data-panel-id="4">
+          
+          <p>1.人物：女主、未觉醒者、任务者<br>2.核心设定：系统安排玩家进入女主所在世界，目标是杀死女主。女主死后，这个世界<br>会正式变成一个副本，其所在宿舍是副本的核心，其他舍友会成为副本主要 npc，即保留自<br>我意识且拥有一定特殊能力的原住民。<br>但该位面的世界意识并不想消失，不想沦为系统的副本世界，于是将不同平行时空的记<br>忆给了其中一条世界线的女主，于是女主带着记忆重生了，其灵魂被世界意识扣留在死前三<br>天不断循环，直到破解生路。<br>针对世界意识的举措，系统赋予任务者抹除记忆的能力，该能力的使用有如下限制。<br>女主只有见到凶手的脸，才会触发失忆机制，凶手每天必须更换一个角色附身。随着时<br>间流逝，世界意识对系统的限制逐渐削弱，可删除的记忆也会增加。具体来说，第一天会忘<br>记凶手的长相，第二天会忘记凶手的存在本身，即认为自己只是处于一个无害的循环，第三<br>天则会忘记自己处在循环中。此外，女主若意识到失忆，留下来的凶手相关信息受到阅后即<br>焚的限制。<br>女主没死的世界线里，舍友们都觉醒了。知道自己所在的世界是假的。女主成为玩家探<br>索到了真实，但其他舍友只能呆在这个世界里过设定好的生活，其中，舍友 a 对此感到痛苦，<br>后来取代了一名玩家，成为这次系统安排的任务者。<br>3.剧情安排：<br>①第四次循环第三天，女主在家中死亡。<br>②第五次循环第一天，记起前四次循环的记忆。发现前三次都死在宿舍中，第四次死在<br>家里。<br>③出门，甩掉舍友 a 的跟踪，意识到自己忘记了凶手的长相。女主对比刚醒来时的感受，<br>发现记忆不可靠。<br>④第五次循环第二天，在酒店中和上司开会。舍友 b 在女主第一天的授意下发来提醒。<br>女主意识到自己再次失忆。根据线索推断第一天的完整记忆和部分失忆机制。<br>⑤推理出上司是凶手第二天附身的对象，凶手被指认后消失。<br>⑥第五次循环第三天，系统让女主认为自己的经历是新手副本世界剧情，引导其成为无<br>限流玩家。由于女主实际上存活，该位面并未被系统完全攻略，世界意识暂时陷入沉睡。女<br>主成为玩家是双方势力默认的结果。</p>
+        </article>
+      </div>
+    </section>
+  </main>
+  <script>
+    const archive = document.querySelector('[data-archive]');
+    const tabs = archive.querySelectorAll('[data-panel]');
+    const panels = archive.querySelectorAll('[data-panel-id]');
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.panel;
+        tabs.forEach((item) => item.classList.toggle('is-active', item === tab));
+        panels.forEach((panel) => panel.classList.toggle('is-active', panel.dataset.panelId === target));
+      });
+    });
+  </script>
+</body>
+</html>

@@ -117,8 +117,8 @@
 
     .hero {
       position: relative;
-      min-height: 820px;
-      margin-top: 64px;
+      min-height: 560px;
+      margin-top: 42px;
     }
 
     .hero::before {
@@ -659,12 +659,148 @@
       object-fit: contain;
     }
 
+    .site-footer {
+      margin-top: clamp(72px, 10vw, 128px);
+      border-top: 2px solid rgba(244, 232, 167, 0.7);
+      padding-top: 28px;
+      color: var(--paper);
+      font-family: var(--mono);
+      font-size: 14px;
+      letter-spacing: 0.06em;
+    }
+
+    .site-footer a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+    }
+
+    .atlas {
+      gap: clamp(38px, 6vw, 72px);
+    }
+
+    .atlas-chapter,
+    .atlas-chapter:nth-child(even) {
+      min-height: auto;
+      padding: clamp(34px, 5vw, 54px);
+    }
+
+    .atlas-chapter::before,
+    .atlas-chapter::after,
+    .chapter-map::before {
+      display: none;
+    }
+
+    .section-title,
+    .atlas-chapter:nth-child(even) .section-title {
+      position: relative;
+      top: auto;
+      justify-self: auto;
+      margin: 0 0 28px;
+      text-align: left;
+    }
+
+    .chapter-map,
+    .atlas-chapter:nth-child(even) .chapter-map {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      min-height: auto;
+      margin: 0;
+      padding: 0;
+      max-width: none;
+    }
+
+    .node,
+    .node:nth-child(even),
+    .node:nth-child(odd),
+    .n3,
+    .n7 {
+      width: 100%;
+      min-height: 230px;
+      transform: none;
+      justify-self: stretch;
+    }
+
+    .node::before,
+    .node::after {
+      display: none;
+    }
+
+    .research-list {
+      display: grid;
+      gap: 14px;
+      max-width: none;
+      min-height: auto;
+      margin: 0;
+      padding: 0;
+    }
+
+    .research-link {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      border: 2px solid var(--ink);
+      padding: 18px 20px;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 18% 26%, rgba(8,8,8,0.055) 0 1px, transparent 1.4px) 0 0 / 7px 7px,
+        rgba(255, 248, 221, 0.95);
+      text-decoration: none;
+      box-shadow: 8px 8px 0 rgba(8,8,8,0.24);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .research-link:hover,
+    .research-link:focus {
+      transform: translateY(-4px);
+      box-shadow: 12px 12px 0 rgba(8,8,8,0.42);
+      outline: none;
+    }
+
+    .research-link .meta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+      color: rgba(8,8,8,0.62);
+      font-family: var(--mono);
+      font-size: 13px;
+      letter-spacing: 0.06em;
+    }
+
+    .research-link strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .research-link p {
+      margin: 8px 0 0;
+      line-height: 1.65;
+    }
+
+    .research-link .open-mark {
+      align-self: stretch;
+      display: grid;
+      place-items: center;
+      min-width: 92px;
+      border-left: 1px solid rgba(8,8,8,0.22);
+      padding-left: 18px;
+      color: var(--paper);
+      background: var(--ink);
+      font-family: var(--mono);
+      font-size: 13px;
+    }
+
     @media (max-width: 820px) {
       .page { width: min(100% - 28px, 720px); }
       .decor-orbit { top: -130px; right: -240px; width: 620px; }
       .decor-sigil { display: none; }
       .decor-frame { width: 880px; }
-      .hero { min-height: 650px; }
+      .hero { min-height: 540px; }
       .hero::before { left: 24%; width: 420px; opacity: 0.2; }
       .vertical {
         writing-mode: horizontal-tb;
@@ -693,7 +829,22 @@
         margin-bottom: 32px;
         justify-self: auto;
       }
-      .chapter-map { gap: 26px; }
+      .chapter-map,
+      .atlas-chapter:nth-child(even) .chapter-map {
+        grid-template-columns: 1fr;
+        gap: 26px;
+      }
+
+      .research-link {
+        grid-template-columns: 1fr;
+      }
+
+      .research-link .open-mark {
+        justify-self: start;
+        min-width: auto;
+        border-left: 0;
+        padding: 8px 12px;
+      }
       .chapter-map::before { left: 22px; width: 80%; opacity: 0.42; }
       .node,
       .n3,
@@ -781,23 +932,35 @@
       <section class="atlas-chapter">
         <h2 class="section-title t-archive">文字档案<small>Text Files</small></h2>
         <div class="chapter-map">
+          <article class="node n8" tabindex="0">
+            <div class="meta"><span>Worldbuilding</span><span>Draft</span></div>
+            <h3>伊俄摩萨 / Lomosia 世界观设定集</h3>
+            <p>伊俄摩萨 / Lomosia 是一个克系架空近现代魔幻现实主义世界。</p>
+            <a href="archives/lomosia-worldview.html">Open</a>
+          </article>
           <article class="node n5" tabindex="0">
             <div class="meta"><span>Worldbuilding</span><span>Draft</span></div>
             <h3>独立游戏策划案</h3>
             <p>包括游戏简介、玩法流程、系统设计、UI视觉风格、世界观、道具和地图。</p>
-            <a href="assets/docs/game-worldview.pdf" target="_blank">Open PDF</a>
+            <a href="archives/game-worldview.html">Open</a>
           </article>
           <article class="node n4" tabindex="0">
             <div class="meta"><span>Outline</span><span>Signed</span></div>
             <h3>晋江签约文大纲</h3>
             <p>无限流长篇大纲。</p>
-            <a href="assets/docs/jinjiang-outline.pdf" target="_blank">Open PDF</a>
+            <a href="archives/jinjiang-outline.html">Open</a>
+          </article>
+          <article class="node n9" tabindex="0">
+            <div class="meta"><span>Script</span><span>Excerpt</span></div>
+            <h3>《名存实亡》原创剧本</h3>
+            <p>序章</p>
+            <a href="archives/mingcunshiwang-script.html">Open</a>
           </article>
           <article class="node n6" tabindex="0">
             <div class="meta"><span>Research</span><span>Excerpt</span></div>
             <h3>《纸嫁衣》民俗考据节选</h3>
             <p>民俗文化背景考据。</p>
-            <a href="assets/docs/paper-wedding-research.pdf" target="_blank">Open PDF</a>
+            <a href="assets/docs/paper-wedding-research.pdf">Open</a>
           </article>
         </div>
       </section>
@@ -844,33 +1007,22 @@
 
       <section class="atlas-chapter">
         <h2 class="section-title t-notes">研究札记<small>Research</small></h2>
-        <div class="chapter-map">
-          <article class="node n7" tabindex="0">
-            <div class="meta"><span>Published Paper</span><span>2024</span></div>
-            <h3>A Study on Introducing Logical Symbols with Stories to Improve Critical Thinking with a Comparative Experiment</h3>
-            <p>Journal of Contemporary Educational Research, 2024, Volume 8, Issue 11</p>
-            <a href="assets/docs/logical-symbols-stories.pdf" target="_blank">Open PDF</a>
-          </article>
+        <div class="research-list">
+          <a class="research-link" href="assets/docs/logical-symbols-stories.pdf" target="_blank">
+            <span>
+              <span class="meta"><span>Published Paper</span><span>2024</span></span>
+              <strong>A Study on Introducing Logical Symbols with Stories to Improve Critical Thinking with a Comparative Experiment</strong>
+              <p>Journal of Contemporary Educational Research, 2024, Volume 8, Issue 11</p>
+            </span>
+            <span class="open-mark">Open PDF</span>
+          </a>
         </div>
       </section>
 
-      <section class="atlas-chapter">
-        <h2 class="section-title t-echo">回声<small>Echo</small></h2>
-        <div class="chapter-map">
-          <article class="node n8" tabindex="0">
-            <div class="meta"><span>Signed</span></div>
-            <h3>签约</h3>
-            <p>晋江签约作品《金手指反水现场[无限]》。</p>
-            <figure class="proof"><img src="assets/echo/jjwxc-contract.jpg" alt="晋江签约作品截图" /></figure>
-          </article>
-          <article class="node n9" tabindex="0">
-            <div class="meta"><span>Contact</span></div>
-            <h3>联系</h3>
-            <p>2776445876@qq.com</p>
-          </article>
-        </div>
-      </section>
     </section>
+    <footer class="site-footer">
+      <a href="mailto:wengxinyi277@gmail.com">wengxinyi277@gmail.com</a>
+    </footer>
   </main>
 </body>
 </html>

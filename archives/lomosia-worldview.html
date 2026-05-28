@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>伊俄摩萨 / Lomosia 世界观设定集</title>
+  <style>
+    :root {
+      --paper: #f6f0e6;
+      --paper-deep: #e7dccb;
+      --ink: #201b17;
+      --muted: #756b60;
+      --line: #d4c8b8;
+      --accent: #8d3732;
+      --accent-dark: #65201d;
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      color: var(--ink);
+      background: #ede3d5;
+      font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(141, 55, 50, .13), transparent 28rem),
+        radial-gradient(circle at 88% 12%, rgba(168, 143, 93, .22), transparent 26rem),
+        linear-gradient(90deg, rgba(212, 200, 184, .42) 1px, transparent 1px) 0 0 / 72px 72px,
+        linear-gradient(180deg, #fbf8f1, var(--paper) 46%, var(--paper-deep));
+    }
+
+    .shell {
+      width: min(calc(100% - 40px), 1180px);
+      margin: 0 auto;
+      padding: 42px 0 72px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hero {
+      display: grid;
+      gap: 20px;
+      padding: 64px 0 40px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: "Noto Serif SC", "Songti SC", "SimSun", serif;
+      font-weight: 500;
+    }
+
+    h1 {
+      max-width: 860px;
+      margin: 0;
+      font-size: clamp(42px, 7vw, 86px);
+      line-height: 1.12;
+    }
+
+    .hero p {
+      max-width: 780px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.9;
+    }
+
+    .console {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      min-height: 660px;
+      border: 1px solid rgba(141, 55, 50, .18);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(251, 248, 241, .92), rgba(231, 220, 203, .62)),
+        linear-gradient(90deg, rgba(141, 55, 50, .06) 1px, transparent 1px) 0 0 / 42px 42px;
+      overflow: hidden;
+      box-shadow: 0 30px 72px rgba(78, 49, 35, .12);
+    }
+
+    .tabs {
+      display: grid;
+      align-content: start;
+      gap: 1px;
+      border-right: 1px solid var(--line);
+      background: rgba(212, 200, 184, .7);
+    }
+
+    .tab {
+      min-height: 66px;
+      border: 0;
+      border-left: 3px solid transparent;
+      padding: 15px 16px;
+      color: var(--muted);
+      background: rgba(251, 248, 241, .82);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .tab span {
+      display: block;
+      margin-bottom: 4px;
+      color: #a79b8c;
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .tab:hover,
+    .tab.is-active {
+      border-left-color: var(--accent);
+      color: var(--ink);
+      background: #fbf8f1;
+    }
+
+    .panels {
+      max-height: 78vh;
+      overflow: auto;
+      padding: 34px;
+    }
+
+    .panel {
+      display: none;
+      animation: panelIn .22s ease both;
+    }
+
+    .panel.is-active {
+      display: grid;
+      gap: 24px;
+    }
+
+    .panel h2 {
+      margin: 0;
+      font-size: clamp(30px, 5vw, 54px);
+      line-height: 1.16;
+    }
+
+    .panel h3 {
+      margin: 14px 0 4px;
+      color: var(--accent-dark);
+      font-size: 24px;
+    }
+
+    .panel h4 {
+      margin: 0 0 8px;
+      color: var(--accent-dark);
+      font-size: 19px;
+      font-weight: 600;
+    }
+
+    .text-block {
+      display: grid;
+      gap: 14px;
+      max-width: 850px;
+    }
+
+    .text-block p,
+    .text-block li {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.9;
+    }
+
+    .record-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .record {
+      border: 1px solid rgba(141, 55, 50, .14);
+      border-radius: var(--radius);
+      padding: 18px;
+      background: rgba(251, 248, 241, .78);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(251, 248, 241, .78);
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid var(--line);
+      padding: 12px 14px;
+      text-align: left;
+      line-height: 1.7;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--accent-dark);
+      font-weight: 600;
+      background: rgba(141, 55, 50, .07);
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    @media (max-width: 860px) {
+      .console { grid-template-columns: 1fr; }
+      .tabs {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .panels {
+        max-height: none;
+        padding: 24px;
+      }
+      .record-grid { grid-template-columns: 1fr; }
+    }
+
+    @keyframes panelIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <span>伊俄摩萨 / Lomosia 世界观设定集</span>
+      <span>文字档案</span>
+    </header>
+
+    <section class="hero">
+      <span class="eyebrow">伊俄摩萨 / Lomosia</span>
+      <h1>伊俄摩萨 / Lomosia 世界观设定集</h1>
+      <p>伊俄摩萨 / Lomosia 是一个克系架空近现代魔幻现实主义世界。</p>
+    </section>
+
+    <section class="console" data-console>
+      <nav class="tabs" aria-label="目录">
+        <button class="tab is-active" type="button" data-panel="intro"><span>0</span>简介</button>
+        <button class="tab" type="button" data-panel="principles"><span>1</span>创作准则</button>
+        <button class="tab" type="button" data-panel="cosmos"><span>2</span>宇宙结构和主要概念</button>
+        <button class="tab" type="button" data-panel="pollution"><span>3</span>知识污染机制</button>
+        <button class="tab" type="button" data-panel="magic"><span>4</span>魔法体系与禁令</button>
+        <button class="tab" type="button" data-panel="factions"><span>5</span>组织分歧</button>
+        <button class="tab" type="button" data-panel="geography"><span>6</span>世界地理总览</button>
+        <button class="tab" type="button" data-panel="plates"><span>7</span>板块构造</button>
+        <button class="tab" type="button" data-panel="climate"><span>8</span>气候</button>
+        <button class="tab" type="button" data-panel="disasters"><span>9</span>主要灾害体系</button>
+      </nav>
+
+      <div class="panels">
+        <article class="panel is-active" data-panel-id="intro">
+          <h2>0. 简介</h2>
+          <div class="text-block">
+            <p>伊俄摩萨 / Lomosia 是一个克系架空近现代魔幻现实主义世界。</p>
+            <P>据《旧月地考》记载，Lomosa一词来自旧月语Iomo与地名后缀-sa。早期注释者将Iomo解释为“被月光照见的自我”，也有学者认为它原本指向“在黑夜中获得形体的生命”。后世通行译名为伊俄摩萨，意为“诸相借形而居之地”。</P>
+            <P>这个世界里，万物皆因其相而得名。</P>
+            <p>它曾拥有高度发展的魔法与神秘学传统。魔法发展到高阶阶段后接近旧日支配者语言与谱系引发降临灾难，人类被迫进行大规模知识清洗。此后，科技成为合法知识体系，魔法、旧语、真名学、星象秘仪和高等神秘学被纳入禁区。</p>
+            <p>核心价值冲突是，若知识是一种污染，人类是否应该走出洞穴？</p>
+          </div>
+        </article>
+
+        <article class="panel" data-panel-id="principles">
+          <h2>1. 创作准则</h2>
+          <div class="text-block">
+            <p>伊俄摩萨的核心历史冲突包括：</p>
+            <ol>
+              <li>魔法与神秘学接近旧日真相，引发知识清洗。</li>
+              <li>科技取代魔法成为合法知识体系。</li>
+              <li>现代科学、语言学、精神医学、天文学和通信技术再度接近污染边界。</li>
+              <li>调查组织内部围绕真相封锁、有限公开和加速接触形成分歧。</li>
+            </ol>
+          </div>
+        </article>
+
+        <article class="panel" data-panel-id="cosmos">
+          <h2>2. 宇宙结构和主要概念</h2>
+          <div class="text-block">
+            <p>伊俄摩萨采用有限层级式多元宇宙。人类公开知识体系承认的是现象界的存在。</p>
+          </div>
+          <h3>2.1 五重宇宙</h3>
+          <div class="record-grid">
+            <section class="record"><h4>现象界</h4><p>人类日常生活所在的世界层面。伊俄摩萨的国家、城市、科技、教育、战争、医疗和政治都发生在这里。官方教育体系维护现象界的稳定叙事。</p></section>
+            <section class="record"><h4>理念界</h4><p>古代魔法师认为万物具有真实形式，理念界储存事物的结构与本质。名理学、星象学、真名学和几何秘仪都试图接触这一层。后来学者发现，理念界深处混入旧日支配者痕迹。</p></section>
+            <section class="record"><h4>兆界</h4><p>梦境、幻觉、预言、群体癫狂和神谕发生的中间层。兆界污染发生在人类梦境之中，旧日语言常通过兆界传播。</p></section>
+            <section class="record"><h4>残界</h4><p>已经失败的实验世界。残界保留文明曾经接近真相后的遗留物，包括禁书、异常矿物、病菌、器械和破碎星图。加速派常误读残界，认为跨界求生具有可行性。</p></section>
+            <section class="record"><h4>无定界</h4><p>旧日支配者所在之处。人类一旦尝试定义它，便会产生关联。</p></section>
+          </div>
+          <h3>2.2 Logos与污染</h3>
+          <div class="text-block">
+            <p>伊俄摩萨的核心概念是Logos。Logos既指语言秩序，也指理性结构。魔法依靠Logos运作，科学也依靠Logos建立可检验的世界知识。旧日支配者的语言能够寄生在Logos之中，使语言成为组织世界与暴露世界的双重工具。</p>
+            <p>古代名理学者相信，万物都有可被说出的形式。说出正确名称，便能接触事物本质。名理学发展到后期，学者发现部分名称来自无定界。读出这些名称的人会与对应旧日存在建立关联。</p>
+          </div>
+        </article>
+
+        <article class="panel" data-panel-id="pollution">
+          <h2>3. 知识污染机制</h2>
+          <div class="text-block">
+            <p>知识污染围绕确认真实存在与建立语言关联展开。传说和寓言通常处于低风险状态；一旦个体确认旧日支配者真实存在，污染便进入稳定且不可逆阶段。</p>
+            <p>语言是核心污染机制。读出旧日支配者语言的人，即使理解有限，也会建立初级关联。</p>
+            <p>污染链可分为六个阶段：</p>
+          </div>
+          <table>
+            <thead><tr><th>阶段</th><th>表现</th><th>风险</th></tr></thead>
+            <tbody>
+              <tr><td>1.0</td><td>异常感、避讳、地方禁忌</td><td>低</td></tr>
+              <tr><td>2.0</td><td>梦境、幻听、重复符号</td><td>中</td></tr>
+              <tr><td>3.0</td><td>读出旧语、名相对应</td><td>高</td></tr>
+              <tr><td>4.0</td><td>投影具象化</td><td>极高</td></tr>
+              <tr><td>真名阶段</td><td>局部降临风险显著上升</td><td>封锁级</td></tr>
+              <tr><td>终末之地</td><td>终末坐标形成</td><td>最高级</td></tr>
+            </tbody>
+          </table>
+          <div class="text-block">
+            <p>对某位旧日支配者了解越多，其投影越具象。支配者也可能主动污染个体和区域。时间与空间会被对应旧日存在局部扭曲。</p>
+          </div>
+        </article>
+
+        <article class="panel" data-panel-id="magic">
+          <h2>4. 魔法体系与禁令</h2>
+          <div class="text-block">
+            <p>魔法曾经是人类理解世界的主要方法。它由古语、星象、仪式、符号、精神训练和自然分类组成。早期魔法可以治病、占梦、守护城邦、改良农事、通讯和防灾，拥有合法地位。</p>
+            <p>高等魔法越发展，越依赖真名、谱系、呼唤、回应和理念界接触。它逐渐接近旧日支配者语言，使魔法成为通往污染的高速路径。官方公开理由将魔法解释为巫灾和瘟疫的起源；调查组织高层掌握真正原因，即高等魔法正在暴露伊俄摩萨的终末坐标。</p>
+            <p>现存魔法情报</p>
+          </div>
+          <table>
+            <thead><tr><th>种类</th><th>内容</th><th>当代状态</th></tr></thead>
+            <tbody>
+              <tr><td>修复法术</td><td>护符、草药、驱邪</td><td>部分容忍</td></tr>
+              <tr><td>实用法术</td><td>治愈、照明、防护、寻物、通信、简易炼金</td><td>调查组织保留</td></tr>
+              <tr><td>高阶法术</td><td>星象推演、灵魂剥离、空间折叠、时间回溯</td><td>严格封锁</td></tr>
+              <tr><td>禁术</td><td>模仿旧日语言与谱系的术式</td><td>最高级禁忌</td></tr>
+            </tbody>
+          </table>
+          <div class="text-block">
+            <p>知识清洗事件针对魔法学院、占星塔、炼金工坊、仪式教团和名理学者展开。清洗之后，魔法遗址被改建为大学、疗养院、博物馆、行政楼、仓库或军事设施。</p>
+          </div>
+        </article>
+
+        <article class="panel" data-panel-id="factions">
+          <h2>5. 组织分歧</h2>
+          <div class="text-block">
+            <p>伊俄摩萨存在针对污染与灾变的调查组织体系。内部围绕真相处理方式形成三种路线。</p>
+          </div>
+          <div class="record-grid">
+            <section class="record"><h4>封锁派</h4><p>掌握官方话语权，主张维持普通社会认知边界。封锁派拥有国家档案馆、审查系统、学校课程、疗养院体系和灾害解释权。基层成员通常相信自己在维护社会稳定，主角初始属于这一阵营。</p></section>
+            <section class="record"><h4>公开派</h4><p>主张有限公开灾变知识。他们认为群众掌握污染识别、防灾避难、兆记录和异常地理知识后，可以降低灾难死亡率。公开派在灾害前线、梅里迪亚地方医疗体系和部分学校中影响较强。</p></section>
+            <section class="record"><h4>加速派</h4><p>掌握中层真相，知道废界存在、邻界可达、旧魔法曾跨界，也知道知识能够提高适应性。他们相信公开真相可以推动人类进化或逃生。</p></section>
+          </div>
+        </article>
+
+        <article class="panel" data-panel-id="geography">
+          <h2>6. 世界地理总览</h2>
+          <div class="text-block">
+            <p>伊俄摩萨的公开地理学把世界划分为五大陆、四大洋与一个核心内海。调查组织内部地图在公开地图之外标注污染语源、兆频率、旧日投影强度和禁行区域。</p>
+          </div>
+          <h3>6.1 五大陆</h3>
+          <div class="record-grid">
+            <section class="record"><h4>阿尔瓦大陆 Arva</h4><p>位于北半球中纬度。它拥有中央平原、东部山系、西部海岸低地、北部丘陵带和南部内海沿岸。这里人口密集，农业稳定，行政体系成熟，科技与档案系统发达。</p></section>
+            <section class="record"><h4>维斯珀大陆 Vespera</h4><p>位于阿尔瓦以西。西部海岸湿润，内陆高原干燥，东南盆地多盐湖与荒漠。古代星象学、名理学、炼金术和高等魔法在这里兴盛，清洗之后保存大量旧学残痕。</p></section>
+            <section class="record"><h4>梅里迪亚大陆 Meridia</h4><p>位于南半球低纬至中纬。中央高原向四周放射河流，雨林、湿地、河口和火山海岸广布。这里生命异常密集，药材、矿石和生物样本具有高价值。</p></section>
+            <section class="record"><h4>博瑞亚大陆 Boreia</h4><p>位于极北区域。冰盖、冻土、峡湾、深湖和极光带构成主要地貌。这里人口稀少，矿业、科考、军事设施和封锁站点集中。</p></section>
+            <section class="record"><h4>索姆尼亚群陆 Somnia</h4><p>位于大洋中央，由大型岛屿、火山岛链、珊瑚台地、断裂海峡和海底山脊构成。它连接多条远洋航路，也是语言回声、旧潮和禁语传统的核心区域。</p></section>
+          </div>
+          <h3>6.2 四大洋与核心内海</h3>
+          <div class="record-grid">
+            <section class="record"><h4>奇涅里亚洋 Cineria</h4><p>位于阿尔瓦与维斯珀之间。雾季长，沉船带密集，跨洋航线、海底电缆和审查港口发达。它承担贸易、移民、走私和文献流动功能。</p></section>
+            <section class="record"><h4>厄科里亚洋 Echoria</h4><p>环绕索姆尼亚群陆。深海沟、海底回声、鲸歌、旧潮和语言污染集中。海沟声学环境使旧日音节具有保存与传播条件。</p></section>
+            <section class="record"><h4>皮拉利亚洋 Pyralia</h4><p>位于梅里迪亚以南。火山岛链、海底热泉、赤潮、暖流和生命异常集中。这里分布研究站、私人港、采样船和非法样本交易路线。</p></section>
+            <section class="record"><h4>卡托普特里亚洋 Catoptria</h4><p>环绕博瑞亚。冰面反射、极光观测、磁场异常和时空偏移集中。它与观测偏移、理念界接触风险和极地科考密切相关。</p></section>
+            <section class="record"><h4>塞勒内内海 Selene</h4><p>位于阿尔瓦、维斯珀与梅里迪亚之间。曲折海岸、岛屿群、三角洲和浅海大陆架使这里适合早期文明、贸易、学院和港口发展。知识清洗之后，它成为封锁体系、大学网络和疗养院体系的核心区域。</p></section>
+          </div>
+        </article>
+
+        <article class="panel" data-panel-id="plates">
+          <h2>7. 板块构造</h2>
+          <div class="text-block">
+            <p>伊俄摩萨岩石圈由八个主要板块组成。大陆板块厚，承载主要陆块；洋壳板块薄，分布于四大洋。索姆尼亚群陆位于多板块交汇处，地质结构破碎，火山、地震、海啸和海底滑坡频繁。</p>
+          </div>
+          <h3>7.1 主要板块</h3>
+          <div class="record-grid">
+            <section class="record"><h4>阿尔瓦板块</h4><p>承载阿尔瓦大陆主体。板块内部古陆核稳定，中央平原地震较弱。东缘保存古老缝合带，形成东部山系和矿产带。南缘向塞勒内内海缓慢下倾，形成石灰岩丘陵、三角洲和浅海大陆架。</p></section>
+            <section class="record"><h4>维斯珀板块</h4><p>承载维斯珀大陆。中部长期抬升为高原，东南部受拉张形成盆地、裂谷和盐湖。断裂带附近分布金属、盐、宝石和特殊晶矿。</p></section>
+            <section class="record"><h4>梅里迪亚板块</h4><p>承载梅里迪亚大陆。中央古陆块抬升形成高原，河流向四周放射。东南缘与皮拉利亚洋板块俯冲，形成火山带、热泉区和海底矿化区。</p></section>
+            <section class="record"><h4>博瑞亚板块</h4><p>承载博瑞亚大陆和部分极地边缘。古老陆核稳定，磁性矿物带广布。冰盖与构造凹陷共同塑造峡湾、深湖和极地高原。</p></section>
+            <section class="record"><h4>奇涅里亚洋板块</h4><p>位于阿尔瓦与维斯珀之间。中部中洋脊生成新洋壳，推动两岸缓慢分离。沉船带、海底峡谷和海流交汇区密集。</p></section>
+            <section class="record"><h4>厄科里亚洋板块</h4><p>为面积最大的洋壳板块。深海沟、海底火山、洋中脊和大型海盆广布。它与索姆尼亚弧板块交界处形成强活动岛弧系统。</p></section>
+            <section class="record"><h4>皮拉利亚洋板块</h4><p>位于梅里迪亚以南。年轻洋壳向北俯冲，形成火山岛、热泉、赤潮海湾和特殊生态系统。</p></section>
+            <section class="record"><h4>卡托普特里亚洋板块</h4><p>位于博瑞亚周围。寒冷洋壳、极地海盆、海冰和深海沉积共同构成复杂极地构造区。</p></section>
+          </div>
+          <h3>7.2 微板块</h3>
+          <div class="record-grid">
+            <section class="record"><h4>索姆尼亚弧板块</h4><p>由破碎微板块集合构成，承载索姆尼亚大型岛屿与火山岛链。它夹在厄科里亚洋板块、皮拉利亚洋板块和转换断层之间，火山、海啸、海底滑坡和声音异常高发。</p></section>
+            <section class="record"><h4>塞勒内微板块</h4><p>位于阿尔瓦、维斯珀和梅里迪亚之间。古代拉张与后期沉降形成半封闭海盆。它使三片大陆之间拥有短程航行网络，也使知识、宗教、学派和污染语源高度汇聚。</p></section>
+          </div>
+        </article>
+
+        <article class="panel" data-panel-id="climate">
+          <h2>8. 气候</h2>
+          <div class="text-block">
+            <p>伊俄摩萨气候由纬度、海陆分布、山脉走向、洋流系统、冰盖规模和板块地貌共同塑造。星球海洋面积较大，沿海地区温差较小，降水季节较稳定。赤道与低纬区域多雨，副热带内陆干旱，中纬西岸湿润，极地严寒。</p>
+            <p>阿尔瓦东部山系截留奇涅里亚洋水汽，使山系西侧形成森林与农耕带，山系东侧转为干冷内陆。维斯珀高原抬升后，海风进入内陆时水汽递减，形成高原半干旱与盐湖盆地。梅里迪亚中央高原把湿热气流分流到四周，造就雨林、湿地和河口平原。博瑞亚冰盖强化极地高压，使卡托普特里亚洋寒流向低纬伸展。索姆尼亚群陆位于大洋环流与风暴路径上，气候湿润，灾害频率高。</p>
+            <p>洋流塑造沿岸差异。奇涅里亚洋暖流提高阿尔瓦西岸冬季温度，厄科里亚洋环流加强索姆尼亚风暴，皮拉利亚洋暖流为梅里迪亚东岸提供水汽，卡托普特里亚洋寒流维持博瑞亚冰海。</p>
+            <p>长期趋势主要体现在三处：博瑞亚冰盖边缘季节性退缩与再扩张并存；维斯珀内陆与阿尔瓦背风区干旱化增强；梅里迪亚与索姆尼亚的暴雨、风暴潮、赤潮和生物异常事件更频繁。</p>
+          </div>
+          <div class="record-grid">
+            <section class="record"><h4>8.1 阿尔瓦大陆</h4><p>阿尔瓦西岸属于温带海洋性气候，全年湿润，冬季温和，港口通航季长。中央平原为温带湿润至半湿润气候，春季融雪补给河流，夏季对流降雨增强，是主要粮食区。东部山系呈高山垂直气候，迎风坡多森林和雪线，背风坡转为草原、干谷和半荒漠。南部靠近塞勒内内海，冬季多雨，夏季干热，大学、疗养院和港口密集。</p></section>
+            <section class="record"><h4>8.2 维斯珀大陆</h4><p>维斯珀西部海岸湿润多雾，港口和船坞发达。中部高原云量低，昼夜温差大，适合星象观测、牧业、矿业和盐道贸易。东南内陆盆地干旱，蒸发强，盐湖、风蚀地貌和旧语石刻广布。北部山地是重要水源区，水权决定绿洲、矿区和城邦关系。</p></section>
+            <section class="record"><h4>8.3 梅里迪亚大陆</h4><p>梅里迪亚北岸受塞勒内内海影响，属于湿热季风气候，河口农业与港口贸易发达。中央高原气候较凉，适合畜牧、矿业和高原药草。东部与南部沿岸受皮拉利亚洋暖流影响，全年高温多雨，热带风暴、洪水和疫病频繁。西南部背风边缘有热带草原与季节性干旱区。</p></section>
+            <section class="record"><h4>8.4 博瑞亚大陆</h4><p>博瑞亚内部为极地冰原气候，冰层保存古气候、陨石尘埃和异常遗物。外围冻土区夏季短促，铁路、矿区和基地面临沉降风险。西南峡湾受暖流末端影响，通航期较长，是主要港口带。东岸受寒流控制，冰封期长，军事站点和气象站占据核心地位。</p></section>
+            <section class="record"><h4>8.5 索姆尼亚群陆</h4><p>索姆尼亚低纬火山岛属于热带海洋性气候，火山灰土壤肥沃，风暴和火山灾害频繁。珊瑚岛淡水资源有限，雨季决定蓄水。中纬岛链处于风暴路径，海雾、潮汐和浅滩变化使本地领航知识具有高价值。气候与声音异常相互叠加，风暴季常触发旧潮回声。</p></section>
+            <section class="record"><h4>8.6 塞勒内内海区域</h4><p>塞勒内内海周边气候温和，北岸偏温带，西岸较干燥，南岸湿热。半封闭海盆调节温度，使港口、学校、疗养院和学院城密集。短程航行便利，知识与人员流动强，因此这里长期是封锁派、公开派和加速派争夺中心。</p></section>
+          </div>
+        </article>
+
+        <article class="panel" data-panel-id="disasters">
+          <h2>9. 主要灾害体系</h2>
+          <div class="record-grid">
+            <section class="record"><h4>9.1 构造震灾</h4><p>地震集中于索姆尼亚群陆、皮拉利亚洋北缘、阿尔瓦东部山系、维斯珀东南断裂带和卡托普特里亚洋边缘。地震会破坏城镇、道路、矿井和水库，也会打开旧地层。旧矿道、地下学院遗构和旧语铭文层暴露后，救援人员可能接触污染。</p></section>
+            <section class="record"><h4>9.2 火山与热泉灾害</h4><p>火山灾害集中于索姆尼亚、皮拉利亚洋岛链和梅里迪亚东南缘。熔岩流、火山灰、泥流和海啸共同出现。热泉菌群和低频轰鸣常与旧日自然地理实验关联。</p></section>
+            <section class="record"><h4>9.3 海啸与风暴潮</h4><p>海啸来自厄科里亚洋板块、索姆尼亚弧板块和皮拉利亚洋板块边界。海水退去后常留下深海生物、黑色浮泥、古船板和带旧语刻痕的石块。调查组织优先回收带声音残留的贝壳、玄武岩片和无线电记录。</p></section>
+            <section class="record"><h4>9.4 洪水与河道改迁</h4><p>阿尔瓦中央平原、梅里迪亚河网和塞勒内内海三角洲洪水频繁。洪水会冲开旧堤坝、古代排水渠和地下档案层，也会搬运异常植物、病媒昆虫和兆性泥炭。</p></section>
+            <section class="record"><h4>9.5 滑坡、泥石流与矿难</h4><p>阿尔瓦东部山系、维斯珀断层高原、梅里迪亚高原边缘和博瑞亚峡湾地带坡地灾害频繁。矿难常接触旧时代仪式矿脉、异常晶体和地下空腔。矿工在事故前常报告敲击声、重复梦境和强迫发音。</p></section>
+            <section class="record"><h4>9.6 冰雪、冻土与极地偏移灾害</h4><p>博瑞亚与卡托普特里亚洋周边以暴雪、冰裂、雪崩、冻土沉降和极地风暴为主。极光季期间，无线电回声和磁针偏移同步增强。内部档案将其列为时空偏移灾害。</p></section>
+            <section class="record"><h4>9.7 疫病、生态失衡与生命异常</h4><p>梅里迪亚、皮拉利亚洋沿岸和索姆尼亚低纬岛屿是生命异常灾害高发区。病人常出现共同梦境、语言强迫和感官错位。植物、泥炭层、赤潮和珊瑚礁可能保存声音或旧语节律。</p></section>
+            <section class="record"><h4>9.8 群体认知灾害</h4><p>兆灾常发生于梅里迪亚河谷、索姆尼亚海湾、博瑞亚极光区和塞勒内内海学院城。大量人群在同一夜梦见相同星图、陌生语言、废弃城市或旧日投影局部形态。兆被记录整理后，会成为新的知识污染源。</p></section>
+            <section class="record"><h4>9.9 局部时空偏移灾害</h4><p>时空偏移见于博瑞亚、卡托普特里亚洋、索姆尼亚深海沟、维斯珀裂谷和旧学院地下层。区域内空间与时间可能服从对应旧日存在的规则。</p></section>
+            <section class="record"><h4>9.10 旧日投影</h4><p>旧日投影通常发生在旧学院遗址、深海沟、极光观测站、古代矿井、疗养院、档案馆和塞勒内内海大学城。投影出现前，往往已经经历语言污染、兆、时空偏移和生态异常。</p></section>
+            <section class="record"><h4>9.11 旧魔法遗构灾害</h4><p>旧魔法遗构包括仪式场、学院地下层、炼金矿区、占星塔和名理学书库。城市扩建、地震、洪水、考古和盗掘会重新激活这些地点。现代设备进入遗构后，可能把旧日语言转换成电信号，使污染传播速度上升。</p></section>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const root = document.querySelector('[data-console]');
+    const tabs = root.querySelectorAll('[data-panel]');
+    const panels = root.querySelectorAll('[data-panel-id]');
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.panel;
+        tabs.forEach((item) => item.classList.toggle('is-active', item === tab));
+        panels.forEach((panel) => panel.classList.toggle('is-active', panel.dataset.panelId === target));
+      });
+    });
+  </script>
+</body>
+</html>
